@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "NumeroTresApi",
+      "version": "1.0"
+    },
+
+    "servers":[
+        {
+            "url":"https://localhost:7051"
+        }
+    ],
+
+
+    "paths": {
+      "/api/ApiTres": {
+        "get": {
+          "tags": [
+            "ApiTres"
+          ],
+          "parameters": [
+            {
+              "name": "source",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "destination",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "packages",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Modeltres"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Modeltres"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Modeltres"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Modeltres": {
+          "type": "object",
+          "properties": {
+            "quote": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
